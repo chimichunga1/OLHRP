@@ -150,6 +150,7 @@ img
 
 <center><b><a style="color:black; font-size:24px;">RESERVATIONS</a></b></center>
 </div>
+<center><button class="btn btn-primary" data-toggle="modal" data-target="#monthlyModal"><i class="fa fa-print"> Print reservations by month</i></button></center>
 <br><br>
 <div class="wrapper" style="background-color: white;">
 
@@ -299,7 +300,54 @@ $Yourmodal="Yourmodal".$row['u_id'];
 
 
 
+    <!-- Modal HTML -->
+    <div id=monthlyModal class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title' style='color:black;'>PRINT MONTHLY </h4>
+                </div>
+                <div class='modal-body'>
+ <form action="sub_print.php" method="post">                
 
+    <div class='form-group'>
+      <input type='text' class='form-control'  name='delID'  style='opacity:0;display:none;'>
+      <label ><center style='color:black;'> Select a Month</center></label>
+      
+
+     <label style="color: black;"></label>
+    <select name="date_list" id="get-list" class="form-control selectpicker" style="height: 40px;" onChange="getState_new(this.value);">
+<br>
+
+
+         <option value="1"> January </option>
+         <option value="2"> February </option>
+         <option value="3"> March </option>
+         <option value="4"> April </option>
+         <option value="5"> May </option>
+         <option value="6"> June </option>      
+         <option value="7"> July </option>
+         <option value="8"> August </option>
+         <option value="9"> September </option>
+         <option value="10"> October </option>
+         <option value="11"> November </option>
+         <option value="12"> December </option>
+
+<br>
+    </select>
+
+
+    </div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='submit' name='submit_printm'  class='btn btn-success'>Proceed</button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <?php
@@ -363,8 +411,6 @@ $Yourmodal="Yourmodal".$row['u_id'];
         </div>
     </div>
 ";
-
-
 
 
   
