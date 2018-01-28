@@ -206,14 +206,15 @@ img
 $Yourmodal="Yourmodal".$row['u_id'];
   $printmodal="printmodal".$row['u_id'];
 
-/*     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button>*/
+/*     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button>
+     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$printmodal.'"><i class="glyphicon glyphicon-print"></i></button></center>'*/
     echo '<center>
 
 
 
 
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button>
-     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$printmodal.'"><i class="glyphicon glyphicon-print"></i></button></center>'
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button>'
+
 
      ;
 
