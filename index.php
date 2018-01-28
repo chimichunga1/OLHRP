@@ -32,16 +32,40 @@ include ("connect.php"); ?>
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
+
+
+
+
+
+
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> 
+
+
+
+
+
+
+
 <!-- Main css -->
 <link rel="stylesheet" href="css/style2.css">
 <link rel="stylesheet" href="css/w3w.css">
 
-<script src="sm/sm2/dist/sweetalert2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="sm/sm2/dist/sweetalert2.css">
+<script src="sm/papa/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="sm//sweetalert2.css">
 <!-- Google Font -->
 <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
 
+
 <style type="text/css">
+#datepicker
+{
+
+
+
+}
+
+
 	.section1 #myVideo {
 position: relative;
 
@@ -1002,12 +1026,17 @@ else
     </select>
 	<br>
 	<label>DATE</label>
-	<input type='date' class='form-control' required name='r_date' min="<?php echo date('Y-m-d', strtotime(date('Y-m-d'). '+ 7 day'));?>">
+	<input class='form-control'  id="datepicker" required name='r_date' >
 <br>
 <br>
 	
 
-<!-- 	<label class="containerbtn"> SLOT 1 | 08:00 AM - 11:00 AM
+<!-- 	
+min="<?php //echo date('Y-m-d', strtotime(date('Y-m-d'). '+ 7 day'));?>"
+
+
+
+<label class="containerbtn"> SLOT 1 | 08:00 AM - 11:00 AM
   <input type="radio" name="t_id"   checked value="1" required>
   <span class="checkmark"></span>
 </label>
@@ -1327,6 +1356,26 @@ function getState_announce(val) {
 
 
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js">
+  
+</script>
+ <script> $(document).ready(function() { 
+  $('#datepicker').datepicker({ beforeShowDay: noSunday ,minDate:7}); 
+
+
+  function noSunday(date){ 
+
+    var day = date.getDay(); return [(day > 0), '']; 
+  };
+
+
+   });
+  </script>
+
+
+
+
 
 </body>
 </html>

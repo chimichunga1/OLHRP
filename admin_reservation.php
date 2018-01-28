@@ -456,16 +456,15 @@ $Yourmodal="Yourmodal".$row['u_id'];
 <!-- ./wrapper -->
 
 <?php include("admin-scripts.php"); ?>
-<script src="DT/dt.js"></script>
-<script src="DT/dt1.js"></script>
-<script src="DT/dt2.js"></script>
 <script src="js/jquery.js"></script>
+<!-- 
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.parallax.js"></script>
 
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/custom.js"></script> -->
 
 <script>
 
@@ -504,5 +503,8 @@ $(document).ready(function(){
 
 });
 </script>
+<script src="DT/dt.js"></script>
+<script src="DT/dt1.js"></script>
+<script src="DT/dt2.js"></script>
 </body>
 </html>
