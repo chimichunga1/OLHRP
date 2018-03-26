@@ -239,7 +239,7 @@ position: relative;
 if(isset($_POST['submit']))
 
 {
-$row=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `username`="'.$_POST["username"].'" AND `password`="'.$_POST["password"].'" ');
+$row=mysqli_query($c1,'SELECT * From `account_tbl` WHERE `username`="'.$_POST["username"].'" AND `password`="'.$_POST["password"].'" AND `isDeleted`="0"   ');
 
 $search= mysqli_fetch_assoc($row);
   $_SESSION['fn']=$search['fullname'];
@@ -321,17 +321,62 @@ swal({
 
   }
 
+
+
+
+
+
+
+
+
+  elseif (!empty($search) && ($search['isDeleted']==1))
+  {
+
+
+
+?>
+
+<script type='text/javascript'>
+  sweetAlert('LOGIN FAILED !', 'This account is blocked ', 'error');
+</script>
+  <?php
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   else
   {
      echo " 
 
 <script type='text/javascript'>
-	sweetAlert('LOGIN FAILED !', 'Incorrect Username or Password', 'error');
+	sweetAlert('LOGIN FAILED !', 'Incorrect Username or Password ', 'error');
 </script>
 
 
 
  ";
+
+
+
+
+
+
+
   }
 }
 
@@ -957,6 +1002,127 @@ else
 				</CENTER>		
 						<BR>
 			</div>
+
+      <div class="wow fadeInUp col-md-8 col-sm-6" data-wow-delay="0.9s" style="color: white;">
+   
+<table class="table" style="background-color:black;">
+
+    <!--Table head-->
+    <thead>
+        <tr>
+            <th>Reservation #</th>
+            <th>Purpose</th>
+            <th>Date</th>
+            <th>Time Slot</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+
+
+<?php 
+            $table2 = "SELECT * FROM reserve_tbl";
+            $run_query2b = mysqli_query($c1,$table2);
+
+            while($row = mysqli_fetch_array($run_query2b))
+
+        {  
+
+?>
+
+        <tr>
+            <th scope="row"><?php echo $row["r_id"]; ?></th>
+            <td><?php echo $row["event_name"]; ?></td>
+
+            <td><?php echo $row["r_date"]; ?></td>
+            <td>
+
+
+
+              <?php 
+
+
+
+            $table2_time = "SELECT * FROM time_tbl WHERE t_id = '".$row["t_id"]."'";
+            $run_query2b_time = mysqli_query($c1,$table2_time);
+
+            while($row = mysqli_fetch_array($run_query2b_time))
+
+        {  
+              echo $row["t_start"];
+              echo " - ";
+              echo $row["t_end"];
+
+          }
+
+
+
+
+
+               ?>
+                
+
+
+
+
+
+
+              </td>
+
+
+
+
+
+
+
+
+
+
+
+
+        </tr>
+<?php 
+
+}
+?>
+
+
+    </tbody>
+    <!--Table body-->
+
+</table>
+<!--Table-->
+          <CENTER><h3 >RESERVED DATES</h3>
+          <p style="color: white;">Here is the list of all the currently reserved dates </p>
+
+
+
+
+
+        </CENTER>   
+            <BR>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

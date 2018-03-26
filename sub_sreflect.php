@@ -23,7 +23,7 @@ $srdate=$_POST["srdate"];
             $run_query2b = mysqli_query($c1,$table2);         
 
  		$row = mysqli_fetch_row($run_query2b);
-   $IMGID = "Pref ".$sr.$row[0];
+   $IMGID = "Pref ".$row[0];
 
 
 if ($_FILES['srimg']['size'] == 0)
@@ -79,6 +79,6 @@ else
 
   $table2c = "INSERT INTO sunday_tbl (`s_name`,`s_posted`,`s_con`,`s_bg`,`s_date`) VALUES ('".$sr."','".$srposted."','".$srcon."','".$srimg."','".$srdate."')";
    $run_query2d = mysqli_query($c1,$table2c);
-   
-       echo"<script>window.location.href='admin_sreflect.php';</script>";	
+  /* 
+       echo"<script>window.location.href='admin_sreflect.php';</script>";*/	
  ?>  

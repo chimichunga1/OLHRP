@@ -13,6 +13,10 @@ include ('connect.php');
 
 $u_id=$_SESSION['u_id'];
 $v_id=$_POST['v_id'];
+
+
+
+
 $r_name=$_POST['r_name'];
 $r_date=$_POST['r_date'];
 (int)$t_id=$_POST['t_id'];

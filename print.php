@@ -12,6 +12,17 @@ $get_datehere = $_SESSION["get_date"];
 
 
 
+            $table2 = "SELECT * FROM event_tbl WHERE event_name = '$eventname'";
+            $run_query2b = mysqli_query($c1,$table2);
+
+            while($row = mysqli_fetch_array($run_query2b))
+
+        {
+
+
+        	$get_event = $row["event_id"];
+
+        }
 
 //A4 width : 219mm
 //default margin : 10mm each side
@@ -61,6 +72,28 @@ $pdf->Cell(20 ,5,$username,0,1);
 
 $pdf->Cell(80 ,5,'Event Reserved : ',0,0);
 $pdf->Cell(20 ,5,$eventname,0,1);
+$pdf->Cell(80 ,5,'Event Requirements : ',0,0);
+$pdf->Cell(20 ,5,$eventname,0,1);
+
+
+if( $get_event == "1")
+{
+	$pdf->Cell(20 ,5,'WEDDING REQUIREMENTS HERE',0,1);
+}
+elseif( $get_event == "2")
+{
+	$pdf->Cell(20 ,5,'BAPTISM ( SOLO ) REQUIREMENTS HERE',0,1);
+}
+elseif( $get_event == "3")
+{
+	$pdf->Cell(20 ,5,'BAPTISM (MANY) REQUIREMENTS HERE',0,1);
+}
+else
+{
+	$pdf->Cell(20 ,5,'FUNERAL REQUIREMENTS HERE',0,1);
+}
+
+
 
 $pdf->Cell(80 ,5,'Starting Time : ',0,0);
 $pdf->Cell(20 ,5,$timestart,0,1);
