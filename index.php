@@ -921,8 +921,8 @@ if(empty($_SESSION['fn']))
 
 			<div class="wow fadeInUp col-md-5 col-sm-5" data-wow-delay="1s">
 				<form action="index.php" method="post">
-					<input name="username" type="text" class="form-control" id="username" placeholder="Username" required>
-					<input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+					<input name="username" type="text" class="form-control" id="username" pattern="[A-Za-z]" placeholder="Username" required>
+					<input name="password" type="password" class="form-control" id="password" pattern="[0-9]+" placeholder="Password" required>
 					<input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name" required>
 					<input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name" required>
 					<input name="phone" type="text" class="form-control" id="phone" placeholder="Phone Number" required>

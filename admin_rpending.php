@@ -174,7 +174,7 @@ img
         <tbody>
                    <?php 
 
-    $fetch=mysqli_query($c1,'SELECT * From reserve_tbl WHERE isApproved = "1" '); 
+    $fetch=mysqli_query($c1,'SELECT * From reserve_tbl WHERE isApproved = "0" '); 
     while($row=mysqli_fetch_assoc($fetch))
     {
 
@@ -205,6 +205,7 @@ img
   $Mymodal="Mymodal".$row['u_id'];
 $Yourmodal="Yourmodal".$row['u_id'];
   $printmodal="printmodal".$row['u_id'];
+  $approvemodal="approvemodal".$row['u_id'];
 
 /*     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#'.$Mymodal.'" ><i class="glyphicon glyphicon-edit"></i></button>
      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$printmodal.'"><i class="glyphicon glyphicon-print"></i></button></center>'*/
@@ -213,7 +214,11 @@ $Yourmodal="Yourmodal".$row['u_id'];
 
 
 
-     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button>'
+     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$Yourmodal.'"><i class="glyphicon glyphicon-remove"></i></button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#'.$approvemodal.'"><i class="glyphicon glyphicon-ok"></i></button>
+
+
+     '
 
 
      ;
@@ -254,6 +259,38 @@ $Yourmodal="Yourmodal".$row['u_id'];
     </div>
 ";
 //==========================================================================
+//==========================================================================
+  echo
+"
+    
+    <!-- Modal HTML -->
+    <div id='".$approvemodal."' class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title' style='color:black;'>APPROVE FORM </h4>
+                </div>
+                <div class='modal-body'>
+                 
+ <form  role='form' action='approve_reservation.php' method='post' >
+    <div class='form-group'>
+      <input type='text' class='form-control'  name='appID'  style='opacity:0;display:none;' value='".$row['r_id']."'>
+      <label ><center style='color:black;'>Are you sure you want to Approve '".$row['r_name']."' ?</center></label>
+      
+    </div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='submit' name='submit_approve'  class='btn btn-success'>Yes</button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+//==========================================================================
+
   echo
 "
     

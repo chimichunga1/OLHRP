@@ -79,6 +79,5 @@ else
 
   $table2c = "INSERT INTO sunday_tbl (`s_name`,`s_posted`,`s_con`,`s_bg`,`s_date`) VALUES ('".$sr."','".$srposted."','".$srcon."','".$srimg."','".$srdate."')";
    $run_query2d = mysqli_query($c1,$table2c);
-  /* 
-       echo"<script>window.location.href='admin_sreflect.php';</script>";*/	
+echo"<script>window.location.href='admin_sreflect.php';</script>";
  ?>  

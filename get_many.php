@@ -29,125 +29,23 @@
 <?php 
 include("connect.php");
 
-if(isset($_POST["moira"]))
-{
-$event_id = $_SESSION["event_id"];
-$u_id=$_SESSION['u_id'];
-
-$get_event_here = $_POST["r_purpose"];
-
-$t_id=$_POST['t_id'];
-$r_date=$_POST['r_date'];
-$_SESSION["user_id"] = $u_id;
-$_SESSION["get_date"] = $r_date;
+ $u_id = $_SESSION["getu_id"];
+$user_name_new = $_SESSION["getr_name"];
+ $event_id = $_SESSION["event_id"];
+ $r_date = $_SESSION["r_date"];
+ $t_id = $_SESSION["t_id"];
+ $get_event = $_SESSION["event_name"];
+ $zo = $_SESSION["isDeleted"];
+ $zo = $_SESSION["isApproved"];
 
 
 
-/*echo $event_id;
-echo "<br>";
-echo $u_id;
-echo "<br>";
-echo $t_id;
-echo "<br>";
-echo $r_date;
-
-*/
-  $xQx_username = "SELECT * FROM account_tbl WHERE u_id ='$u_id'";
-  $getuser=mysqli_query($c1,$xQx_username);
-  
-
-    while($row=mysqli_fetch_assoc($getuser))
-    {
-
-      $user_name_new = $row["username"];
-
-    }
 
 
-  $xQx_event = "SELECT * FROM event_tbl WHERE event_id ='$get_event_here'";
-  $getevent=mysqli_query($c1,$xQx_event);
-  
-
-    while($row=mysqli_fetch_assoc($getevent))
-    {
-
-      $get_event = $row["event_name"];
-
-    }
-
-
-  $xQx_select = "SELECT * FROM reserve_tbl WHERE r_date = '$r_date' AND t_id = '$t_id' ";
-  $row=mysqli_query($c1,$xQx_select);
-  
-$search= mysqli_fetch_assoc($row);
-
-if( $event_id == "3" )
-{
-  
-$zo = "0";
-$_SESSION["getu_id"] = $u_id;
-$_SESSION["getr_name"]= $user_name_new;
-$_SESSION["event_id"] = $event_id;
-$_SESSION["r_date"] = $r_date;
-$_SESSION["t_id"] = $t_id;
-$_SESSION["event_name"] = $get_event;
-$_SESSION["isDeleted"]= $zo;
-$_SESSION["isApproved"] = $zo;
-
-?>
-<script>
-{
-    alert("Reservation successful!");
-window.location.href='get_many.php';
-}
-</script>
-<?php
-
-}
-
-
-  if (empty($search))
-{
-
-
-
-/*echo $u_id;
-echo "<br>";
-echo $user_name_new;
-echo "<br>";
-echo $event_id;
-echo "<br>";
-echo $r_date;
-echo "<br>";
-echo $t_id;
-echo "<br>";
-echo $get_event;
-echo "<br>";
-*/
-$zero = "0";
-
-/*$table2c = "INSERT INTO reserve_tbl (r_name) VALUES ('$u_id')";*/
-
-  $table2c = "INSERT INTO reserve_tbl (`u_id`,`r_name`,`event_id`,`r_date`,`t_id`,`event_name`,`isDeleted`,`isApproved`) VALUES ('".$u_id."','".$user_name_new."','".$event_id."','".$r_date."','".$t_id."','".$get_event."','".$zero."','".$zero."') ";
+  $table2c = "INSERT INTO reserve_tbl (`u_id`,`r_name`,`event_id`,`r_date`,`t_id`,`event_name`,`isDeleted`,`isApproved`) VALUES ('".$u_id."','".$user_name_new."','".$event_id."','".$r_date."','".$t_id."','".$get_event."','".$zo."','".$zo."') ";
    $run_query2d = mysqli_query($c1,$table2c);
 
-   ?>
-
-<script>
-{
-    alert("Reservation was successful!");
-}
-
-</script>
-
-
-<?php 
-
-
-
-
 ?>
-
 
 
 <!-- =========================
@@ -297,50 +195,6 @@ Date Scheduled : <?php echo $r_date; ?>
 <?php 
 
 
-
-
-
-
-}
-
-
-
-
-
-
-
-else
-{
-?>
-
-
-<script>
-{
-    alert("Schedule is Already taken!");
-window.location.href='index.php';
-}
-
-</script>
-
-
-<?php 
-
-}
-
-
-}
-
-
-
-else
-{
-  ?>
-
-<script>
-  window.location.href='index.php';
-</script>
-  <?php
-}
 
 
 

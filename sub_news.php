@@ -22,8 +22,8 @@ $newsdate=$_POST["newsdate"];
         $table2 = "select MAX(news_ID) from news_tbl";
             $run_query2b = mysqli_query($c1,$table2);         
 
- 		$row = mysqli_fetch_row($rowun_query2b);
-   $IMGID = "P ".$news.$row[0];
+ 		$row = mysqli_fetch_row($run_query2b);
+   $IMGID = "P ".$row[0];
 
 
 if ($_FILES['newsimg']['size'] == 0)
@@ -80,5 +80,5 @@ else
   $table2c = "INSERT INTO news_tbl (`news`,`newsposted`,`newscon`,`newspic`,`newsdate`) VALUES ('".$news."','".$newsposted."','".$newscon."','".$newsimg."','".$newsdate."')";
    $run_query2d = mysqli_query($c1,$table2c);
    
-       echo"<script>window.location.href='admin_news.php';</script>";	
+ echo"<script>window.location.href='admin_news.php';</script>";	
  ?>  
