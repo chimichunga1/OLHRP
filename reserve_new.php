@@ -36,7 +36,7 @@ $u_id=$_SESSION['u_id'];
 
 $get_event_here = $_POST["r_purpose"];
 
-(int)$t_id=$_POST['t_id'];
+$t_id=$_POST['t_id'];
 $r_date=$_POST['r_date'];
 $_SESSION["user_id"] = $u_id;
 $_SESSION["get_date"] = $r_date;
@@ -76,7 +76,7 @@ echo $r_date;
     }
 
 
-  $xQx_select = "SELECT * FROM reserve_tbl WHERE event_id = '$event_id' AND r_date = '$r_date' AND t_id = '$t_id' ";
+  $xQx_select = "SELECT * FROM reserve_tbl WHERE r_date = '$r_date' AND t_id = '$t_id' ";
   $row=mysqli_query($c1,$xQx_select);
   
 $search= mysqli_fetch_assoc($row);
@@ -85,11 +85,29 @@ $search= mysqli_fetch_assoc($row);
   if (empty($search))
 {
 
-  $xQx_insert = "INSERT INTO reserve_tbl ( u_id, r_name, event_id, r_date, t_id, event_name, isDeleted) VALUES ( '$u_id', '$user_name_new', '$event_id', '$r_date', '$t_id', '$get_event','0')";
-  $query_insert=mysqli_query($c1,$xQx_insert);
 
 
-    
+echo $u_id;
+echo "<br>";
+echo $user_name_new;
+echo "<br>";
+echo $event_id;
+echo "<br>";
+echo $r_date;
+echo "<br>";
+echo $t_id;
+echo "<br>";
+echo $get_event;
+echo "<br>";
+
+$zero = "0";
+
+
+  $table2c = "INSERT INTO reserve_tbl (`u_id`,`r_name`,`event_id`,`r_date`,`t_id`,`event_name`,`isDeleted`) VALUES ('".$u_id."','".$user_name_new."','".$event_id."','".$r_date."','".$t_id."','".$get_event."','".$zero."') ";
+   $run_query2d = mysqli_query($c1,$table2c);
+
+
+
 ?>
 
 <script>
@@ -100,7 +118,12 @@ $search= mysqli_fetch_assoc($row);
 </script>
 
 
+<?php 
 
+
+
+
+?>
 
 
 
@@ -248,41 +271,7 @@ Date Scheduled : <?php echo $r_date; ?>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

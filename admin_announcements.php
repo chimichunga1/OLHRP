@@ -139,8 +139,7 @@ img
             <th>#</th>
             <th>Annoucement</th>
             <th>Date</th>
-            <th>Time</th>
-            <th>Venue</th>
+
             <th>Organizer</th>
             <th>Content</th>
             <th>Posted by</th>
@@ -162,8 +161,7 @@ img
             <th scope="row" style="vertical-align: middle;"><?php echo $row['a_id']; ?></th>
             <th style="color: black;background-color: white; vertical-align: middle;"><?php echo $row['an_name']; ?></th>
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['an_date']; ?></th>
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['an_time']; ?></th>
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['an_venue']; ?></th>
+
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['an_by']; ?></th>
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['an_con']; ?></th>
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['an_posted']; ?></th>

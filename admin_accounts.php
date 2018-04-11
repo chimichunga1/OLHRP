@@ -137,8 +137,6 @@ img
     <thead class="blue-grey lighten-4">
         <tr>
             <th>User ID</th>
-            <th>Username</th>
-            <th>Password</th>
             <th>Fullname</th>
             <th>E-mail</th>
             <th>Phone</th>
@@ -160,8 +158,6 @@ img
   ?>
         <tr>
             <th scope="row" style="vertical-align: middle;"><?php echo $row['u_id']; ?></th>
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['username']; ?></th>
-            <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['password']; ?></th>
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['fullname']; ?></th>
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['email']; ?></th>
             <th style="color: black;background-color: white;vertical-align: middle;"><?php echo $row['phone']; ?></th>

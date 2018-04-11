@@ -173,7 +173,7 @@ img
 
         <tbody>
                    <?php 
-   
+
     $fetch=mysqli_query($c1,'SELECT * From reserve_tbl'); 
     while($row=mysqli_fetch_assoc($fetch))
     {
@@ -223,11 +223,75 @@ $Yourmodal="Yourmodal".$row['u_id'];
 
   echo "</td>";
 
-?>
-
+//==========================================================================
+  echo
+"
     
     <!-- Modal HTML -->
-    <?php echo "<div id='".$Mymodal."' class='modal fade'>"; ?>
+    <div id='".$Yourmodal."' class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title' style='color:black;'>DELETE FORM </h4>
+                </div>
+                <div class='modal-body'>
+                 
+ <form  role='form' action='del_reservation.php' method='post' >
+    <div class='form-group'>
+      <input type='text' class='form-control'  name='delID'  style='opacity:0;display:none;' value='".$row['r_id']."'>
+      <label ><center style='color:black;'>Are you sure you want to delete '".$row['r_name']."' ?</center></label>
+      
+    </div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='submit' name='submit_delete'  class='btn btn-success'>Yes</button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+//==========================================================================
+  echo
+"
+    
+    <!-- Modal HTML -->
+    <div id='".$printmodal."' class='modal fade'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title' style='color:black;'>PRINT FORM </h4>
+                </div>
+                <div class='modal-body'>
+                 
+ <form  role='form' action='print_reservation.php' method='post' >
+    <div class='form-group'>
+      <input type='text' class='form-control'  name='print_id'  style='opacity:0;display:none;' value='".$row['r_id']."'>
+      <label ><center style='color:black;'>Are you sure you want to delete '".$row['r_name']."' ?</center></label>
+      
+    </div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='submit' name='submit_print'  class='btn btn-success'>Yes</button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
+  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+";
+
+ echo "<div id='".$Mymodal."' class='modal fade'>"; 
+
+}
+
+
+
+
+    ?>
         <div class='modal-dialog'>
             <div class='modal-content'>
                 <div class='modal-header'>
@@ -352,66 +416,6 @@ $Yourmodal="Yourmodal".$row['u_id'];
 
 
 <?php
-//==========================================================================
-  echo
-"
-    
-    <!-- Modal HTML -->
-    <div id='".$Yourmodal."' class='modal fade'>
-        <div class='modal-dialog'>
-            <div class='modal-content'>
-                <div class='modal-header'>
-                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    <h4 class='modal-title' style='color:black;'>DELETE FORM </h4>
-                </div>
-                <div class='modal-body'>
-                 
- <form  role='form' action='del_reservation.php' method='post' >
-    <div class='form-group'>
-      <input type='text' class='form-control'  name='delID'  style='opacity:0;display:none;' value='".$row['r_id']."'>
-      <label ><center style='color:black;'>Are you sure you want to delete '".$row['r_name']."' ?</center></label>
-      
-    </div>
-                </div>
-                <div class='modal-footer'>
-                    <button type='submit' name='submit_delete'  class='btn btn-success'>Yes</button>
-                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
-  </form>
-                </div>
-            </div>
-        </div>
-    </div>
-";
-//==========================================================================
-  echo
-"
-    
-    <!-- Modal HTML -->
-    <div id='".$printmodal."' class='modal fade'>
-        <div class='modal-dialog'>
-            <div class='modal-content'>
-                <div class='modal-header'>
-                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
-                    <h4 class='modal-title' style='color:black;'>PRINT FORM </h4>
-                </div>
-                <div class='modal-body'>
-                 
- <form  role='form' action='print_reservation.php' method='post' >
-    <div class='form-group'>
-      <input type='text' class='form-control'  name='print_id'  style='opacity:0;display:none;' value='".$row['r_id']."'>
-      <label ><center style='color:black;'>Are you sure you want to delete '".$row['r_name']."' ?</center></label>
-      
-    </div>
-                </div>
-                <div class='modal-footer'>
-                    <button type='submit' name='submit_print'  class='btn btn-success'>Yes</button>
-                    <button type='button' class='btn btn-danger' data-dismiss='modal'>No</button>
-  </form>
-                </div>
-            </div>
-        </div>
-    </div>
-";
 
 
   
@@ -422,7 +426,7 @@ $Yourmodal="Yourmodal".$row['u_id'];
 
   ?>
       <?php
-       }
+       
 
     ?>
       
@@ -456,16 +460,15 @@ $Yourmodal="Yourmodal".$row['u_id'];
 <!-- ./wrapper -->
 
 <?php include("admin-scripts.php"); ?>
-<script src="DT/dt.js"></script>
-<script src="DT/dt1.js"></script>
-<script src="DT/dt2.js"></script>
 <script src="js/jquery.js"></script>
+<!-- 
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.parallax.js"></script>
 
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/custom.js"></script> -->
 
 <script>
 
@@ -504,5 +507,8 @@ $(document).ready(function(){
 
 });
 </script>
+<script src="DT/dt.js"></script>
+<script src="DT/dt1.js"></script>
+<script src="DT/dt2.js"></script>
 </body>
 </html>

@@ -32,6 +32,8 @@ $search= mysqli_fetch_assoc($row);
 mysqli_query($c1,"INSERT INTO reserve_tbl (`u_id`,`v_id`,`r_name`,`r_date`,`t_id`) VALUES ('".$u_id."','".$v_id."','".$r_name."','".$r_date."','".$t_id."' )");
 
     
+
+
 ?>
 
 

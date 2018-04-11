@@ -22,7 +22,7 @@ $newsdate=$_POST["newsdate"];
         $table2 = "select MAX(news_ID) from news_tbl";
             $run_query2b = mysqli_query($c1,$table2);         
 
- 		$row = mysqli_fetch_row($run_query2b);
+ 		$row = mysqli_fetch_row($rowun_query2b);
    $IMGID = "P ".$news.$row[0];
 
 

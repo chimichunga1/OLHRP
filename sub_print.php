@@ -99,11 +99,11 @@ $pdf->Cell(45 ,5,'Purpose',1,0);
 $pdf->Cell(49 ,5,'Slot #',1,0);
 $pdf->Cell(45 ,5,'Reservee',1,1);//end of line
 
-
+/*
 $pdf->Cell(50 ,5,'',1,0);
 $pdf->Cell(45 ,5,'',1,0);
 $pdf->Cell(49 ,5,'',1,0);
-$pdf->Cell(45 ,5,'',1,1);//end of line
+$pdf->Cell(45 ,5,'',1,1);//end of line*/
     $fetch=mysqli_query($c1,'SELECT * From reserve_tbl'); 
     while($row=mysqli_fetch_assoc($fetch)) //QUERY ALL THE DATES IN THE TABLE
     {
@@ -120,9 +120,12 @@ $d = date_parse_from_format("Y-m-d", $row["r_date"]);
 /*
 $pdf->Cell(130 ,5,$d["month"],0,0);
 $pdf->Cell(59 ,5,'',0,1);//end of line*/
+  $fetch2=mysqli_query($c1,'SELECT * From event_tbl where event_id="'.$row["event_id"].'" '); 
+    $row1=mysqli_fetch_assoc($fetch2);
+
 
 $pdf->Cell(50 ,5,$row["r_date"],1,0);
-$pdf->Cell(45 ,5,$row["event_name"],1,0);
+$pdf->Cell(45 ,5,$row1["event_name"],1,0);
 $pdf->Cell(49 ,5,$row["t_id"],1,0);
 $pdf->Cell(45 ,5,$row["r_name"],1,1,'R');//end of line
 

@@ -13,6 +13,9 @@ $delID=$_POST["delID"];
 
    $run_query2d = mysqli_query($c1,$table2c);
 
-   echo"<script>window.location.href='admin_reservation.php';</script>";
+
+
+
+echo"<script>window.location.href='admin_reservation.php';</script>";
 
    ?>  
